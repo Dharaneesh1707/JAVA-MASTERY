@@ -1,0 +1,34 @@
+In Java, type casting is the conversion of a variable from one data type to another. The two types are implicit casting (automatic, safe) and explicit casting (manual, potentially unsafe). 
+Implicit Casting (Widening Conversion)
+Implicit casting (also known as widening or automatic conversion) is performed automatically by the Java compiler when converting a smaller data type to a larger one. 
+Process: No special syntax is required; the conversion happens automatically.
+Safety: It is always safe because the larger type has enough memory to hold the entire range of values from the smaller type, so there is no risk of data loss.
+Order (smallest to largest): byte -> short -> char -> int -> long -> float -> double. 
+Example:
+java
+int myInt = 10;
+double myDouble = myInt; // Implicit casting from int to double
+System.out.println(myDouble); // Output: 10.0
+In this case, the int value 10 is automatically converted to the double value 10.0. 
+Explicit Casting (Narrowing Conversion)
+Explicit casting (also known as narrowing or manual conversion) is required when converting a larger data type to a smaller one. This process is not automatic because it can lead to data loss or a loss of precision. 
+Process: The programmer must manually use the cast operator (type) to explicitly tell the compiler to perform the conversion.
+Safety: It is potentially unsafe. Data loss can occur (e.g., losing the decimal part of a floating-point number, or an overflow if the value is outside the target type's range).
+Order (largest to smallest): double -> float -> long -> int -> char -> short -> byte. 
+Example:
+java
+double myDouble = 9.78;
+int myInt = (int) myDouble; // Explicit casting from double to int
+System.out.println(myInt); // Output: 9
+Here, the decimal part (.78) is truncated, and the int variable only stores the whole number 9. 
+Summary of Differences
+Feature 	Implicit Casting	Explicit Casting
+Also Known As	Widening, Automatic Conversion	Narrowing, Manual Conversion
+Direction	Smaller type to larger type	Larger type to smaller type
+Syntax	No special syntax required	Requires the (type) cast operator
+Data Loss Risk	None, it is safe	Yes, data or precision loss can occur
+Compiler Action	Done automatically by the compiler	Requires manual instruction from the programmer
+Casting with Objects
+Type casting also applies to objects within an inheritance hierarchy: 
+Upcasting: Converting a subclass reference to a superclass reference is safe and happens implicitly.
+Downcasting: Converting a superclass reference back to a subclass reference must be done explicitly using the cast operator and the instanceof operator should be used to prevent a ClassCastException at runtime. 
