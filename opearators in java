@@ -1,0 +1,11 @@
+Operators in Java are special symbols that perform operations on variables and values. They can be broadly categorized into several groups, each serving a specific purpose, from basic mathematical calculations to complex logical comparisons and bit manipulation. 
+The main categories of operators in Java include:
+Arithmetic Operators: For mathematical operations like addition (+), subtraction (-), multiplication (*), division (/), modulus (%), increment (++), and decrement (--). The + operator can also be used for string concatenation.
+Relational (Comparison) Operators: Used for comparing two values, returning true or false. These include equal to (==), not equal to (!=), greater than (>), less than (<), greater than or equal to (>=), and less than or equal to (<=).
+Logical Operators: Combine boolean expressions. The operators are logical AND (&&), logical OR (||), and logical NOT (!).
+Assignment Operators: Assign values to variables. The basic assignment is =, while compound operators like += and -= provide shorthand for operations like a = a + b.
+Bitwise Operators: Perform operations on the individual bits of integers, such as bitwise AND (&), OR (|), XOR (^), and complement (~).
+Shift Operators: Shift the bits of an integer. This category includes signed left shift (<<), signed right shift (>>), and unsigned right shift (>>>).
+Ternary (Conditional) Operator: A shorthand for if-else statements, taking the form condition ? expression1 : expression2.
+instanceof Operator: Checks if an object is an instance of a specific class or interface. 
+For more comprehensive details and examples of these operators, you can refer to resources such as the official Oracle Help Center, W3Schools, and GeeksforGeeks. 

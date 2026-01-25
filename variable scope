@@ -1,0 +1,16 @@
+In Java, the scope of a variable defines the region of the program where the variable can be accessed. Variables are only accessible within the block of code (defined by curly braces {}) in which they are declared or within nested blocks. 
+Java has four main types of variable scope: 
+Local Variables
+Method Parameters
+Instance Variables (Class-level scope)
+Class/Static Variables (Class-level scope) 
+Types of Variable Scope
+Feature 	Local Variable	Method Parameter	Instance Variable	Class/Static Variable
+Where Declared	Inside a method, constructor, or block	In the method/constructor declaration signature	Inside a class, outside any method or block	Inside a class, outside any method/block, with static keyword
+Accessibility	Only within its declared block/method	Only within the body of the method	All methods/blocks within the class (except static methods without an object reference)	Anywhere in the class, and from outside using the class name
+Lifetime	Created on entry to the block and destroyed on exit	Created when the method is called and destroyed when the method finishes	Exists as long as the object instance exists	Exists for the entire duration of the program (as long as the class is loaded)
+Default Value	None; must be initialized before use	None; initialized by the calling method	Yes (e.g., 0 for int, null for objects, false for boolean)	Yes (same as instance variables)
+Key Concepts
+Block Scope: Variables declared inside any pair of curly braces {} (such as in if statements, for loops, or while loops) are only accessible within that specific block.
+Variable Shadowing: This occurs when a variable in an inner scope has the same name as a variable in an outer scope. The variable name in the inner scope refers to the local variable, effectively "shadowing" the outer one. Java allows this between instance and local variables, but not for two local variables within the same scope.
+Access Modifiers: While not strictly part of scope, access modifiers (public, private, protected, default) further control the visibility of instance and class variables outside the class or package. 

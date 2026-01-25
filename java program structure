@@ -1,0 +1,10 @@
+The basic structure of a Java program is a collection of one or more classes, one of which must contain the main() method to serve as the entry point for execution. The program is organized into distinct sections, most of which are optional. 
+Components of a Java Program
+A typical Java program follows a standard organization from top to bottom: 
+Documentation Section (Optional): This section contains comments ignored by the compiler but used by developers to enhance code readability and generate HTML documentation using the Javadoc tool. Comments are enclosed in /** ... */ or use // for single lines or /* ... */ for multi-line comments.
+Package Declaration (Optional): The package statement is the first actual line of code (if present). It defines a namespace for the classes and helps organize related classes, preventing naming conflicts in large projects. Example: package com.example.myapp;.
+Import Statements (Optional): These statements are used to include classes or entire packages from other libraries (built-in or user-defined) into the current program, allowing their functionality to be used without fully specifying their path. Example: import java.util.Scanner; or import java.util.*;.
+Interface Section (Optional): An interface is a blueprint of a class that can be defined using the interface keyword. It can contain method declarations and constants but no method implementations, used to achieve abstraction and support multiple inheritance.
+Class Definition (Mandatory): This is the core of any Java program, as Java is an object-oriented language. Every program must have at least one class defined using the class keyword. The class name should generally match the filename (e.g., MyClass.java for public class MyClass).
+Class Members: Inside the class body ({...}), you can define variables (fields), constructors, and methods.
+Main Method Class (Mandatory for stand-alone programs): One class must contain the main() method, which is the starting point for the Java Virtual Machine (JVM) to begin execution. 
