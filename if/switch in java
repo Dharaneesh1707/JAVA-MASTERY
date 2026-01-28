@@ -1,0 +1,63 @@
+In Java, both if and switch statements are used for decision-making but are suited for different scenarios. The if statement evaluates complex boolean conditions, while the switch statement is designed for multi-branch decisions based on the exact value of a single expression. 
+if Statements
+The if-else-if construct provides flexibility for evaluating a wide range of conditions, including complex logical and relational expressions (e.g., ranges, multiple variables, && or || operators). 
+Key Features
+Evaluates Boolean Expressions: The condition inside an if statement must resolve to true or false.
+Supports All Data Types: Can be used with all data types in a variety of comparisons (equality, greater than, less than, etc.).
+Handles Complex Logic: Ideal for conditions involving ranges or multiple criteria. 
+Example Syntax
+java
+int grade = 85;
+if (grade >= 90) {
+    System.out.println("Grade A");
+} else if (grade >= 80) {
+    System.out.println("Grade B");
+} else if (grade >= 70) {
+    System.out.println("Grade C");
+} else {
+    System.out.println("Grade D or F");
+}
+ 
+switch Statements
+The switch statement is a cleaner, more efficient alternative to a long chain of if-else-if statements when you are comparing a single variable against a fixed set of constant values. 
+Key Features
+Evaluates a Single Expression: The switch statement evaluates an expression once and compares the result for equality against the case labels.
+Limited Data Types (Traditional): Traditionally limited to integral types (like int, byte, short, char), enums, and, since Java 7, String objects.
+Fall-Through Behavior: Without a break statement, execution "falls through" to subsequent case blocks. This can be used to handle multiple cases with the same code.
+default Case: An optional default case handles situations where none of the case values match the expression.
+Enhanced Switch (Java 12+): Modern Java introduced enhanced switch expressions that can return a value directly and use an arrow (->) syntax that eliminates fall-through, improving readability and safety. 
+Example Syntax (Traditional)
+java
+int day = 3;
+switch (day) {
+    case 1:
+        System.out.println("Monday");
+        break;
+    case 2:
+        System.out.println("Tuesday");
+        break;
+    case 3:
+        System.out.println("Wednesday");
+        break;
+    default:
+        System.out.println("Invalid day");
+}
+ 
+Example Syntax (Enhanced, Java 12+)
+java
+int day = 3;
+String dayName = switch (day) {
+    case 1 -> "Monday";
+    case 2 -> "Tuesday";
+    case 3 -> "Wednesday";
+    default -> "Invalid day";
+};
+System.out.println(dayName);
+ 
+Summary of Differences
+Feature 	if-else	switch
+Use Case	Complex conditions, ranges, multiple variables.	Equality checks against a single variable's fixed values.
+Condition Type	Boolean expressions (true/false).	Equality checks with constant values (int, char, String, etc.).
+Readability	Becomes verbose and hard to read with many nested conditions.	Cleaner and more readable for many conditions on a single value.
+Performance	Evaluates conditions sequentially, can be slower for many checks.	Generally faster for many cases due to compiler optimizations (jump tables).
+Fall-Through	Not applicable.	Execution falls through to next case if no break (traditional) or arrow (enhanced) is used.
