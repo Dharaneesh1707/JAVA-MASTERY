@@ -1,0 +1,10 @@
+In Java, the main differences between String, StringBuilder, and StringBuffer lie in their mutability, thread safety, and performance. 
+Feature 	String	StringBuffer	StringBuilder
+Mutability	Immutable (cannot be changed after creation)	Mutable (can be changed in place)	Mutable (can be changed in place)
+Thread-Safe	Yes (inherently, due to immutability)	Yes (methods are synchronized)	No (not synchronized)
+Performance	Slow for frequent modifications	Slower than StringBuilder due to synchronization overhead	Fastest for frequent modifications in single-threaded environments
+Use Case	Fixed, unchanging strings	String manipulation in multi-threaded environments	String manipulation in single-threaded environments
+Detailed Comparison
+String: String objects are immutable. Any operation that appears to modify a String (like concatenation using the + operator) actually creates a new String object in memory. This is efficient for strings that are read frequently but rarely modified, as the JVM can optimize memory usage via the string pool. For scenarios involving frequent modifications (e.g., inside a loop), using String is inefficient and creates a lot of garbage for the garbage collector.
+StringBuffer: StringBuffer represents a mutable sequence of characters and is designed to be thread-safe. All of its public methods (like append(), insert(), delete()) are synchronized, ensuring that only one thread can access an instance at a time. This makes it a safe choice for concurrent operations in a multi-threaded application, but the synchronization adds performance overhead, making it slower than StringBuilder in single-threaded scenarios. StringBuffer was available from Java 1.0.
+StringBuilder: StringBuilder is also a mutable sequence of characters, providing an API compatible with StringBuffer, but without thread safety. Since its methods are not synchronized, it offers better performance (it is faster) in single-threaded environments. It was introduced in Java 5 to address the performance cost of StringBuffer when thread safety isn't required. For most general-purpose string manipulation within a single thread, StringBuilder is the recommended choice
