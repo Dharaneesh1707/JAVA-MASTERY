@@ -1,0 +1,53 @@
+In Java, wrapper classes are classes that encapsulate primitive data types (like int, char, boolean) into objects. They are essential for bridging the gap between Java's primitive types and its object-oriented features, such as collections and generics. 
+The Eight Wrapper Classes
+Each of the eight primitive data types in Java has a corresponding wrapper class in the java.lang package. 
+Primitive Type 	Wrapper Class
+boolean	Boolean
+byte	Byte
+char	Character
+short	Short
+int	Integer
+long	Long
+float	Float
+double	Double
+Key Purposes and Advantages
+Use in Collections: Java's collection framework (e.g., ArrayList, HashMap) can only store objects, not primitives. Wrapper classes allow you to store primitive values in these collections (e.g., ArrayList<Integer>).
+Null Values: Unlike primitives (which have a default value like 0 or false), wrapper class objects can hold a null value, which is useful for representing the absence of a value, often necessary when working with databases.
+Utility Methods: Wrapper classes provide a variety of useful static methods for operations like type conversion, parsing strings into primitive types (e.g., Integer.parseInt("123")), and comparing values.
+Generics Support: Generics in Java require objects as type parameters, so wrapper classes enable the use of primitives in generic programming.
+Serialization and Synchronization: Operations like serialization (converting objects into streams) and synchronization in multithreading require objects, making wrapper classes necessary.
+Immutability and Thread Safety: All wrapper class objects are immutable, meaning their value cannot be changed once created. This characteristic makes them inherently thread-safe. 
+Autoboxing and Unboxing
+Java provides automatic conversions between primitive types and their corresponding wrapper classes, a feature called autoboxing and unboxing. 
+Autoboxing: The automatic conversion of a primitive type to a wrapper object.
+java
+int primitiveInt = 42;
+Integer wrapperInt = primitiveInt; // Autoboxing
+Unboxing: The automatic conversion of a wrapper object to its corresponding primitive type.
+java
+Integer wrapperInt = 100;
+int primitiveInt = wrapperInt; // Unboxing
+ 
+Example Usage
+java
+import java.util.ArrayList;
+
+public class WrapperExample {
+    public static void main(String[] args) {
+        // Using Integer wrapper class in an ArrayList
+        ArrayList<Integer> numbers = new ArrayList<>();
+        
+        // Autoboxing (int to Integer)
+        numbers.add(10);
+        numbers.add(20);
+
+        // Unboxing (Integer to int) during retrieval
+        int firstNumber = numbers.get(0);
+        
+        System.out.println("First number: " + firstNumber);
+        
+        // Using a utility method
+        String str = "300";
+        int parsedInt = Integer.parseInt(str);
+        System.out.println("Parsed int: " + parsedInt); 
+    }
