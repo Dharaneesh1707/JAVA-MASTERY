@@ -1,0 +1,47 @@
+
+Scanner Class
+The Scanner class, part of the java.util package, is a simple text scanner that can parse primitive data types and strings using regular expressions. It is widely used for user input in small console applications due to its ease of use and built-in parsing methods. 
+Ease of Use: Provides numerous built-in methods like nextInt(), nextDouble(), nextLine(), etc., to read input directly into various data types, eliminating the need for manual type conversion.
+Tokenization: It breaks input into tokens using a delimiter, which is whitespace by default, but can be customized using the useDelimiter() method.
+Performance: Generally slower than BufferedReader for large inputs due to its parsing overhead and smaller default buffer size (1KB).
+Exception Handling: Hides IOException and provides built-in exception handling for input mismatches (e.g., entering a string when an integer is expected, which throws an InputMismatchException).
+Thread Safety: Not thread-safe. 
+Example Usage (Java):
+java
+import java.util.Scanner;
+
+public class ScannerExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter your name: ");
+        String name = scanner.nextLine();
+        System.out.print("Enter your age: ");
+        int age = scanner.nextInt();
+        System.out.println("Hello, " + name + "! You are " + age + " years old.");
+        scanner.close(); // Recommended to close the scanner
+    }
+}
+BufferedReader Class
+The BufferedReader class, part of the java.io package, reads text efficiently from a character-input stream by buffering characters. It is ideal for performance-critical scenarios, such as reading large files or streams. 
+Efficiency: Faster than Scanner, especially for large amounts of data, because it reads large chunks of data into an 8KB buffer at once, reducing the number of costly I/O operations.
+Data Type Handling: It only reads input as a String (using the readLine() method). Manual conversion is required for other data types (e.g., using Integer.parseInt(br.readLine())).
+Exception Handling: Throws a checked IOException, so it requires explicit handling with try-catch blocks or the throws keyword in the method signature.
+Thread Safety: It is synchronized and thread-safe. 
+Example Usage (Java):
+java
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
+public class BufferedReaderExample {
+    public static void main(String[] args) throws IOException { // Handle IOException
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("Enter your name: ");
+        String name = reader.readLine();
+        System.out.print("Enter your age: ");
+        int age = Integer.parseInt(reader.readLine()); // Manual conversion
+        System.out.println("Hello, " + name + "! You are " + age + " years old.");
+        reader.close(); // Recommended to close the reader
+    }
+}
+Summary of Differences
