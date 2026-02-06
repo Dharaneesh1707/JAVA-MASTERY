@@ -1,0 +1,13 @@
+The super keyword in Java is a reference variable used within a subclass (child class) to refer to its immediate superclass (parent class) object. It is essential for managing inheritance and is used in three main ways: 
+To access a parent class's instance variable when the subclass has a variable with the same name, resolving naming conflicts (variable shadowing).
+To invoke a parent class's method when the method has been overridden in the subclass, allowing you to extend the parent's behavior rather than completely replacing it.
+To call a parent class's constructor from the subclass's constructor, ensuring that the inherited parts of the object are initialized properly before the subclass-specific initialization occurs. 
+Usage Details
+Accessing Parent Class Variables
+When both the parent and child classes have an instance variable with the same name, the child's variable "shadows" the parent's. The super keyword provides a way to explicitly access the hidden parent variable. 
+The example code shows how super.name is used in the Dog subclass to print the name variable from the Animal superclass, while name (without super) refers to the name variable in the Dog class itself. 
+Invoking Parent Class Methods
+In method overriding, a subclass provides its own implementation of a method defined in the superclass. To execute the original superclass method within the overridden method, you use super.methodName(). The provided code demonstrates this, where the Dog class's makeSound method calls the Animal class's makeSound using super.makeSound() before printing "Dog barks". 
+Calling Parent Class Constructors
+The super() call, or super(parameters) for constructors with arguments, is used within a subclass constructor to explicitly invoke a superclass constructor. This call must be the first statement in the subclass constructor. The example illustrates how super("Mammal") in the Dog constructor calls the Animal constructor that accepts a String. If a subclass constructor doesn't explicitly call a superclass constructor, the compiler automatically inserts a call to the superclass's default constructor. A compile-time error occurs if the superclass doesn't have a default constructor and the subclass doesn't make an explicit super call. 
+The super keyword cannot be used in static methods or static blocks because it relates to instance members of the parent class. 
