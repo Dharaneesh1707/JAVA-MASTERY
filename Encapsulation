@@ -1,0 +1,58 @@
+Encapsulation in Java is a core object-oriented programming (OOP) concept that involves bundling data (variables) and the methods that operate on that data into a single unit, typically a class. It is also known as data hiding because it restricts direct access to an object's internal state. 
+How to Achieve Encapsulation in Java
+Encapsulation is primarily implemented using access modifiers, specifically by pairing private variables with public methods. 
+Declare variables as private: This prevents direct access or modification of the data from any class outside its own.
+Provide public getter and setter methods: These methods (accessors and mutators) are the only way to interact with the private variables. The getter method retrieves the variable's value, and the setter method sets it. 
+Example of Encapsulation
+Consider a Person class where you want to protect the name and age variables:
+java
+public class Person {
+    // Private variables (data hiding)
+    private String name;
+    private int age;
+
+    // Public getter method for name
+    public String getName() {
+        return name;
+    }
+
+    // Public setter method for name
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // Public getter method for age
+    public int getAge() {
+        return age;
+    }
+
+    // Public setter method for age with validation
+    public void setAge(int age) {
+        // You can add validation logic here to ensure data integrity
+        if (age > 0 && age < 120) {
+            this.age = age;
+        } else {
+            System.out.println("Invalid age value.");
+        }
+    }
+}
+In a separate class, you would interact with the Person object using the public methods: 
+java
+public class Main {
+    public static void main(String[] args) {
+        Person myObj = new Person();
+        myObj.setName("John Doe"); // Set the value using a public method
+        myObj.setAge(30);          // Set a valid age
+
+        System.out.println("Name: " + myObj.getName()); // Get the value
+        System.out.println("Age: " + myObj.getAge());   // Get the value
+
+        myObj.setAge(-5); // Attempt to set an invalid age (will trigger validation logic)
+    }
+}
+Benefits of Encapsulation
+Data Security/Hiding: Prevents unauthorized parties from directly accessing and modifying sensitive data.
+Control over data: You can implement validation logic within setter methods to ensure that variables are not set to inappropriate or invalid values (e.g., a negative age).
+Flexibility and Maintainability: The internal implementation of a class can be changed (e.g., adding more variables or modifying validation logic) without affecting the external code that uses the public getter and setter methods.
+Modularity and Reusability: Encapsulated classes are self-contained units with clearly defined interfaces, making them easy to test (unit testing) and reuse in different parts of a program or other applications.
+Read-only/Write-only classes: By providing only a getter method, you can make a class's attribute read-only; by providing only a setter, you can make it write-only. 
