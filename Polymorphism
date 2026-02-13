@@ -1,0 +1,59 @@
+Polymorphism in Java is the ability of an object to take on many forms, allowing a single action or method name to be performed in different ways depending on the context. It is a fundamental concept of object-oriented programming (OOP) that enhances code reusability, flexibility, and maintainability. 
+Java supports two main types of polymorphism: 
+1. Compile-Time Polymorphism (Static Binding) 
+This type of polymorphism is resolved during the program's compilation time. It is primarily achieved through method overloading. 
+Method Overloading: This involves defining multiple methods in the same class with the same name but different parameters (differing in number, type, or order of arguments). The compiler determines which specific method to call based on the arguments provided in the method call. 
+Example of Method Overloading:
+java
+public class Calculator {
+    // Method to add two integers
+    public int add(int x, int y) {
+        return x + y;
+    }
+    // Method to add three integers
+    public int add(int x, int y, int z) {
+        return x + y + z;
+    }
+    // Method to add two doubles
+    public double add(double x, double y) {
+        return x + y;
+    }
+}
+In this example, the add method has three different forms, and the compiler decides which one to use based on the number and types of arguments passed. 
+Operator Overloading: Java has limited built-in operator overloading (e.g., the + operator for both numerical addition and string concatenation), but it does not support user-defined operator overloading. 
+2. Runtime Polymorphism (Dynamic Binding)
+This type is resolved at runtime, not during compilation, using a mechanism called dynamic method dispatch. It is achieved through method overriding and relies on inheritance. 
+Method Overriding: This occurs when a subclass provides its own specific implementation of a method that is already defined in its superclass. The method signature (name, parameters, and return type) must be the same in both the superclass and the subclass. When an overridden method is called via a superclass reference, the Java Virtual Machine (JVM) determines the actual object type at runtime and calls the appropriate subclass method. 
+Example of Method Overriding:
+java
+class Animal {
+    public void makeSound() {
+        System.out.println("Animal making a sound...");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Dog barks: Woof Woof");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Cat meows: Meow");
+    }
+}
+
+public class TestPolymorphism {
+    public static void main(String[] args) {
+        Animal myAnimal1 = new Dog(); // Animal reference, Dog object
+        Animal myAnimal2 = new Cat(); // Animal reference, Cat object
+
+        myAnimal1.makeSound(); // Calls Dog's makeSound method
+        myAnimal2.makeSound(); // Calls Cat's makeSound method
+    }
+}
+In this example, even though myAnimal1 and myAnimal2 are of type Animal, the specific makeSound() method that is executed depends on the actual runtime object (Dog or Cat), demonstrating runtime polymorphism. 
+For further learning, explore resources like the Oracle Java Tutorials on polymorphism. 

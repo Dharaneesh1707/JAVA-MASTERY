@@ -1,0 +1,52 @@
+Method overloading in Java is a feature that allows a class to have multiple methods with the same name, provided their parameter lists (also known as the method signature) are different. It is a form of compile-time polymorphism (static binding) where the compiler determines which method to call based on the arguments passed during the method invocation. 
+Rules for Method Overloading
+To successfully overload a method, the parameter list must differ in at least one of the following ways: 
+Number of parameters:
+java
+public void display(int a) { ... }
+public void display(int a, int b) { ... }
+Data type of parameters:
+java
+public void print(int value) { ... }
+public void print(String value) { ... }
+Order of parameters:
+java
+public void processTransaction(String description, double amount) { ... }
+public void processTransaction(double amount, String description) { ... }
+ 
+Note: The return type and access modifiers can be different for overloaded methods, but they alone are not sufficient to distinguish overloaded methods. The parameter list must change. 
+Example of Method Overloading
+In this example, the add method is overloaded to handle different scenarios of addition: 
+java
+public class Calculator {
+    // Method to add two integers
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    // Overloaded method to add three integers (different number of parameters)
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Overloaded method to add two doubles (different data types)
+    public double add(double a, double b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        System.out.println("Sum of two integers: " + calc.add(10, 20));
+        System.out.println("Sum of three integers: " + calc.add(10, 20, 30));
+        System.out.println("Sum of two doubles: " + calc.add(10.5, 20.5));
+    }
+}
+Output:
+Sum of two integers: 30
+Sum of three integers: 60
+Sum of two doubles: 31.0
+The Java compiler determines which add method to call based on the arguments provided at compile time. 
+Benefits
+Improved Readability: It allows you to use the same method name for related tasks, making the code cleaner and easier to understand.
+Flexibility: It provides flexibility in how a method is called, accommodating different types or numbers of input.
+Code Reusability: It reduces the need for multiple method names for the same core operation. 
